@@ -1,0 +1,6 @@
+<?
+
+
+$collEmailTemplate = EmailTemplatePeer::getAll();
+
+

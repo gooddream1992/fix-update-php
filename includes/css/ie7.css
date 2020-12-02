@@ -1,0 +1,55 @@
+img {
+  -ms-interpolation-mode: bicubic; }
+
+body #main .content .confirmation .add_new_card {
+  padding-top: 20px; }
+body #header div ul.nav li a .tag {
+  top: -1px; }
+body #header div.layer2 ul.areas {
+  position: relative;
+  z-index: 10000; }
+body #nav {
+  position: relative;
+  z-index: 1; }
+  body #nav ul.nav li .user_rewards_status .user_reward_points span {
+    top: 1px; }
+  body #nav ul.nav li .user_rewards_status .user_level {
+    top: -3px; }
+
+.merchants .page_content form .buttons {
+  margin-top: 1em; }
+  .merchants .page_content form .buttons input {
+    padding-top: 36px; }
+
+#rail .box_content {
+  margin-top: -1px; }
+
+#rail .comment_bubble div .recent_avatar {
+  margin-left: 7px;
+  margin-right: 2px; }
+
+.modal_window .modal_user_demographics form.demographic_form ul li input.radio {
+  margin-top: 0; }
+
+div.tooltip {
+  border: 1px solid #999999; }
+
+.deal #number_sold_container .fb_friends_who_bought p#fwb_count .fb_logo {
+  zoom: 1;
+  display: inline; }
+.deal #number_sold_container .fb_friends_who_bought ul li {
+  zoom: 1;
+  display: inline; }
+
+.komideals_voice_winner {
+  width: 446px;
+  border: 1px solid #eeeeee;
+  background-color: #f9f9f8; }
+
+html body .plaxo_modal_window .modal_content .modal_main .your_message div {
+  float: left;
+  width: 227px !important; }
+
+#user_referral_plaxo_recipient_list,
+#user_referral_manual_recipient_list {
+  width: 98% !important; }

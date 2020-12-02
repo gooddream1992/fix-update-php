@@ -1,0 +1,110 @@
+/*
+Template Name: PlainSimple
+File: Forms CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>
+*/
+
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+
+/* ----------------------------------------------Search Form-------------------------------------*/
+
+#topbar #search{
+	display:block;
+	float:right;
+	}
+
+#topbar input{
+	display:block;
+	float:left;
+	width:229px;
+	margin:0 5px 0 0;
+	padding:5px;
+	color:#FFFFFF;
+	background-color:#003E61;
+	border:1px solid #FFFFFF;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	}
+
+#topbar input #go{
+	width:auto;
+	height:auto;
+	margin:0;
+	padding:4px;
+	}
+
+/* ----------------------------------------------Forms in Content Area-------------------------------------*/
+
+.respond{
+	display: block; 
+	width:100%;
+}
+
+.respond input, .respond select{
+	width:170px; 
+	padding:3px; 
+	border:1px solid #CCCCCC; 
+	margin:5px 5px 0 0;
+}
+
+.respond .checkbox{
+	width:20px;
+}
+
+.respond textarea{
+	width:98%; 
+	border:1px solid #CCCCCC; 
+	padding:2px; 
+	overflow:auto;
+}
+
+.respond label{
+	font-size: 11px;
+}
+	
+.respond p{
+	margin:10px 0;
+}
+
+.respond .submit, .respond .reset, .respond .select{
+	width:178px;
+	padding:5px;
+	color:#666666;
+	background-color:#F7F7F7;
+	border:1px solid #CCCCCC;
+}
+
+/* ----------------------------------------------Newsletter-------------------------------------*/
+
+
+.hpage form{
+	display:block;
+	width:300px;
+	margin:0;
+	padding:10px 0;
+	border:none;
+	}
+
+
+.hpage input{
+	display:block;
+	float:left;
+	width:245px;
+	margin:0 5px 0 0;
+	padding:5px;
+	color:#666666;
+	background-color:#FFFFFF;
+	border:1px solid #51B7D6;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	}
+
+.hpage input#news_go{
+	width:auto;
+	height:auto;
+	margin:0;
+	padding:4px;
+	}

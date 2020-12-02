@@ -1,0 +1,392 @@
+body {
+  behavior: url(/htc/csshover.htc); }
+  body #container.burst_rays_merchant_center #content_container {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/backgrounds/burst_rays_gray.png', sizingMethod='image'); }
+  body #drawer #follow_drawer .hide.never_miss a {
+    padding-left: 7px; }
+  body #header h1 a {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/logo_komideals.png', sizingMethod='image');
+    display: block;
+    width: 359px;
+    height: 157px;
+    overflow: hidden;
+    line-height: 1000em; }
+  body #header div div ul.drawer_links li#division_drawer_anchor a {
+    background: url(/images/komideals/icons/blue_arrow_header.gif?1286479406) no-repeat right 0.7em; }
+  body #header div div ul.drawer_links li#follow_drawer_anchor a {
+    background: url(/images/komideals/icons/blue_arrow_header.gif?1286479406) no-repeat right 0.7em; }
+  body #header div ul.login li.my_stuff {
+    overflow: hidden; }
+    body #header div ul.login li.my_stuff:hover {
+      background: url(/images/komideals/backgrounds/drop_down_hover.gif?1286479406) repeat-x top left; }
+      body #header div ul.login li.my_stuff:hover a {
+        color: white; }
+      body #header div ul.login li.my_stuff:hover div {
+        background: none;
+        left: -97px; }
+        body #header div ul.login li.my_stuff:hover div ul {
+          background: #66d6f2;
+          padding-top: 10px; }
+          body #header div ul.login li.my_stuff:hover div ul li a {
+            margin: 0 10px; }
+          body #header div ul.login li.my_stuff:hover div ul li.bottom_chrome {
+            background: none; }
+
+#nav {
+  position: relative; }
+  #nav ul.nav li a .tag {
+    top: -1px; }
+  #nav ul.nav li .user_rewards_status .user_reward_points span {
+    top: 1px; }
+  #nav ul.nav li .user_rewards_status .user_level {
+    top: -3px; }
+  #nav ul.nav #btn_header_gift {
+    display: none; }
+  #nav #main .deal_summary .comment_bubble {
+    top: -31px; }
+  #nav #main .deals .deal .primary #number_sold_container .tipped_check_mark {
+    margin-top: 10px;
+    padding-bottom: 0; }
+    #nav #main .deals .deal .primary #number_sold_container .tipped_check_mark .ib {
+      position: relative;
+      top: -5px;
+      margin-right: 5px; }
+  #nav #main .deals .deal .primary .unavailable_deal_message {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/buttons/disabled.png', sizingMethod='image'); }
+  #nav #main .deals .deal .primary .buy .for_a_friend {
+    border-top: none; }
+  #nav #main #post_purchase .content {
+    float: none; }
+  #nav #missed_deal_announcement #txt_missed_komideals {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/backgrounds/txt_oh_no_youre_too_late.png', sizingMethod='image'); }
+  #nav #main #content .forum_links.tabbed {
+    top: 2px; }
+    #nav #main #content .forum_links.tabbed ul li .chrome_left {
+      background-image: none;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/tab_gleft.png', sizingMethod='image'); }
+    #nav #main #content .forum_links.tabbed ul li .chrome_right {
+      background-image: none;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/tab_gright.png', sizingMethod='image'); }
+    #nav #main #content .forum_links.tabbed ul li.current .chrome_left {
+      background-image: none;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/tab_wleft.png', sizingMethod='image'); }
+    #nav #main #content .forum_links.tabbed ul li.current .chrome_right {
+      background-image: none;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/tab_wright.png', sizingMethod='image'); }
+
+#rail .comment_bubble div .recent_avatar {
+  margin-left: 7px;
+  margin-right: 2px; }
+#rail .comment_bubble .shadow {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/modules/shadow_h60.png', sizingMethod='image'); }
+
+.burst_with_rays #rail_list {
+  padding-top: 0;
+  margin-top: 10px; }
+
+.page_content.remove_padding {
+  padding-left: 6px; }
+
+#credit_cards .page_content.remove_padding {
+  padding-left: 0; }
+
+div.tooltip {
+  border: 1px solid #999999; }
+
+.gift_cards .new .preview .card .left, .gift_cards .edit .preview .card .left {
+  margin-left: 40px; }
+
+.merchants .page_content form .buttons {
+  margin-top: 1em; }
+  .merchants .page_content form .buttons input {
+    padding-top: 36px; }
+
+.modal_window .modal_top {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/overlays/bg/bg-popup-top-green.png', sizingMethod='image'); }
+.modal_window .modal_bottom {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/overlays/bg/bg-popup-btm-green.png', sizingMethod='image'); }
+.modal_window .modal_content .bubble_outer {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/overlays/bg/talk-bubble.png', sizingMethod='image'); }
+.modal_window .modal_content .modal_main #miss_komideals .four {
+  background: url(/images/komideals/overlays/bg/miss_komideals4.gif?1286479406) no-repeat 0 0; }
+.modal_window .modal_content.post_purchase_non_gift .modal_main .bubble_outer {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/overlays/bg/talk_bubble_post_purchase_non_gift.png', sizingMethod='image'); }
+.modal_window .modal_top_gs {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/overlays/bg/bg_top_gs.png', sizingMethod='image'); }
+.modal_window a#modal_close {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/overlays/btn/x-close-large.png', sizingMethod='image'); }
+.modal_window .post_purchase_non_gift .modal_header .order p {
+  padding-left: 126px; }
+
+.page_header .border {
+  clear: left; }
+
+#main .content .gift_cards .page_header {
+  width: 956px; }
+
+#rate_options #rate_value1 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value1.png', sizingMethod='image'); }
+
+#rate_options #rate_value2 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value2.png', sizingMethod='image'); }
+
+#rate_options #rate_value3 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value3.png', sizingMethod='image'); }
+
+#rate_options #rate_value4 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value4.png', sizingMethod='image'); }
+
+#rate_options #rate_value5 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value5.png', sizingMethod='image'); }
+
+#rate_options #rate_value6 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value6.png', sizingMethod='image'); }
+
+#rate_options #rate_value7 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value7.png', sizingMethod='image'); }
+
+#rate_options #rate_value8 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value8.png', sizingMethod='image'); }
+
+#rate_options #rate_value9 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value9.png', sizingMethod='image'); }
+
+#rate_options #rate_value10 label {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rating/rating_value10.png', sizingMethod='image'); }
+
+.business_suggestions .doc .box_bottom {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/write_up_bottom.png', sizingMethod='image'); }
+
+.rateable_image_container .rateable_image {
+  filter: alpha(opacity=40); }
+
+#rail .box_bottom {
+  overflow: hidden; }
+#rail .comment_box .box_bottom {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/green_comment_bottom_w234.png', sizingMethod='image'); }
+#rail .side_deal_box .box_top {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/top_sidedeal_w234.png', sizingMethod='image'); }
+
+#content {
+  overflow: hidden; }
+  #content .full_width_press_box .box_top {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/top_w960_rail.png', sizingMethod='image'); }
+  #content .full_width_press_box .box_bottom {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/bottom_w960_rail.png', sizingMethod='image'); }
+  #content .full_width_box .box_top {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/top_w960.png', sizingMethod='image'); }
+  #content .full_width_box .box_bottom {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/bottom_w960.png', sizingMethod='image'); }
+  #content .full_width_top_green .box_bottom {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/bottom_w960.png', sizingMethod='image'); }
+  #content .referral_box .box_bottom {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/referral_bottom_w702.png', sizingMethod='image'); }
+
+#announcement_area .box_top {
+  background-image: none;
+  overflow: hidden;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/top_w952.png', sizingMethod='image'); }
+#announcement_area .box_bottom {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/corners/bottom_w952.png', sizingMethod='image'); }
+
+#rail .callout #gift_rail_callout {
+  display: block;
+  width: 230px;
+  height: 229px;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/seasonal/gift_landing/gift_rail_callout_ie6.png', sizingMethod='image');
+  background-repeat: none;
+  margin: 0 0 15px 0; }
+  #rail .callout #gift_rail_callout a {
+    display: block;
+    width: 230px;
+    height: 229px;
+    text-indent: -9999em; }
+
+#content #holidayCard #hC_main #hC_banner {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/holidays/banner.png', sizingMethod='image'); }
+
+#new_years_wrap_top {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/seasonal/new_years/happy_new_years_top.png', sizingMethod='image');
+  height: 800px; }
+
+#new_years_wrap_bottom {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/seasonal/new_years/happy_new_years_bottom.png', sizingMethod='image'); }
+
+#gift_landing_wrap .header {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/seasonal/valentines/title_show_care.png', sizingMethod='image'); }
+
+#gift_landing_wrap #gift_landing_content #gift_content_left {
+  background-image: url(/images/komideals/seasonal/gift_landing/bg_bucket_head_l_ie6.gif?1286479406); }
+
+#gift_landing_wrap #gift_landing_content #gift_content_right {
+  background-image: url(/images/komideals/seasonal/gift_landing/bg_bucket_head_r_ie6.gif?1286479406); }
+
+#reward_offer .primary .details .price_tag {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rewards/price_tag.png', sizingMethod='image'); }
+#reward_offer .primary .details .available_deal a {
+  background-image: none !important;
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rewards/buy.png', sizingMethod='image'); }
+#reward_offer .primary .details .unavailable_deal_message {
+  background-image: none !important;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/rewards/buy_disabled.png', sizingMethod='image'); }
+
+#signup_announcement {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/backgrounds/bg_signup_announcement.png', sizingMethod='image'); }
+
+.reward_offers_list li {
+  margin: 0 5px 48px 0; }
+
+.page_header #hdr_nav #rewards_logo {
+  margin-bottom: -7px; }
+
+.rewards_logo {
+  height: 43px; }
+
+#rewards_details_panel .right #hdr_how_to_earn_gs {
+  background-image: none;
+  padding-left: 0; }
+
+body a#zenbox_tab {
+  position: absolute;
+  top: 300px; }
+
+.modal_window .modal_user_demographics form.demographic_form ul li input.radio {
+  margin-top: 0; }
+
+.notification_bubble .arrow {
+  bottom: -15px; }
+
+.close, #nav ul.nav li a.close, #nav ul.nav li .notification_bubble a.close, #nav ul.nav li a.close:hover {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/icons/close.png', sizingMethod='image'); }
+
+.komideals_form fieldset.highlight h1.arrow_outset {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/facebook/signup-arrow.png', sizingMethod='image');
+  padding-left: 36px; }
+
+.deal #number_sold_container .fb_friends_who_bought {
+  display: none; }
+  .deal #number_sold_container .fb_friends_who_bought p#fwb_count .fb_logo {
+    zoom: 1;
+    display: inline; }
+  .deal #number_sold_container .fb_friends_who_bought ul li {
+    zoom: 1;
+    display: inline; }
+.deal #price_tag_inner {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/price_tag.png', sizingMethod='image'); }
+.deal .multideal #buy_btn {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/buttons/buy-multideal.png', sizingMethod='image'); }
+.deal #buy_btn {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/komideals/buttons/buy.png', sizingMethod='image'); }
+.deal #buy_btn:hover {
+  cursor: pointer; }
+
+.speckled_hen #price_tag_inner {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/deals/price_tag_marketplace.png', sizingMethod='image'); }
+
+#rail {
+  overflow: visible; }
+  #rail .callout.facebook_widget {
+    overflow: hidden; }
+    #rail .callout.facebook_widget .callout_content {
+      width: 210px;
+      overflow: hidden; }
+  #rail .demographic_side_rail .sidebar_white {
+    width: 232px; }
+  #rail .demographic_side_rail .box_content {
+    padding: 0px; }
+
+.komideals_voice {
+  position: relative; }
+  .komideals_voice .komideals_voice_top {
+    position: relative; }
+
+.demographic_banner .large_green_button {
+  vertical-align: top; }
+
+.post_sub_modal .post_subscribe .submit_or_cancel .modal_close {
+  height: 30px;
+  vertical-align: bottom; }
+.post_sub_modal .modal_footer {
+  height: 50px;
+  display: none; }
+
+.navigation li {
+  top: 47px; }
+
+html body .plaxo_modal_window .modal_content .modal_main {
+  height: auto; }
+  html body .plaxo_modal_window .modal_content .modal_main .your_message div {
+    float: left;
+    width: 217px !important; }
+  html body .plaxo_modal_window .modal_content .modal_main #user_referral_plaxo_recipient_list,
+  html body .plaxo_modal_window .modal_content .modal_main #user_referral_manual_recipient_list {
+    width: 98% !important; }
+
+.modal_footer ul.share_this {
+  width: 480px;
+  overflow: hidden; }
+  .modal_footer ul.share_this li.facebook {
+    width: 20px; }
+  .modal_footer ul.share_this li.twitter {
+    width: 20px;
+    background-position: 0 -51px; }
+  .modal_footer ul.share_this li.referral {
+    width: 80px;
+    background-position: 0 -101px;
+    padding-right: 0 !important;
+    margin-right: 0; }
+    .modal_footer ul.share_this li.referral input {
+      width: 120px;
+      margin-top: 3px; }
+  .modal_footer ul.share_this li a {
+    color: #778866; }
+
+ul.mail_services li.gmail {
+  margin-left: 0 !important; }
+ul.mail_services li.others {
+  margin-left: 0 !important; }

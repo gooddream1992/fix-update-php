@@ -1,0 +1,387 @@
+<?
+	// ------------------------------------------------------------
+	// class used to handle LinkPoint php wrapper (now using paysystems)
+	// 
+	// provides a slightly cleaner interface.
+	// adds additional error checking.
+	// handles default config values so user doesn't have to worry about them
+	// 
+	// note:
+	//     some method args are optional..
+	//     but whenever possible we want to send as much info as we can to 
+	//     LinkPoint so it will be recorded with the transaction on their system
+	// 
+	// main functions used by us:
+	//     ApproveSale()
+	//     ReturnCard()
+	//     CapturePayment()
+	//     BillOrder()
+	// 
+	// public methods:
+	//          LinkPointAPI()
+	//          * constructor
+	//          * loads default LinkPoint config info.
+	// BillOrder() -- unimplimented
+	//          
+	// (string)   CapturePayment( $TransInfo ) returns transaction id on success zero otherwise
+	//          * method used to pre-authorize a charge to a card
+	//          * doesn't actually charge the card..
+	//            but validates the card and reserves the charge to be captured (post-authorized) later
+	//            if not captured later with BillOrders() bank will release in 3-7 days
+	//          * can be used to validate a credit card without charging it..
+	//            just CapturePayment() for a buck or two...
+	//            and then never post-authorize the charge
+	//          * wrapper to method in lpphp class
+	//          * args:
+	//            (struct) $TransInfo
+	//                -- starred (*) fields are required --
+	//                -- include optional fields whenever possible --
+	//                -- the following args are used with several cc transactions --
+	//                (string)  oid            = 1-100 chars..  payment id number in our system
+	//                (string) *userid         = 0-20 chars..  user id number.
+	//                (string) *bname          = 0-50 chars..  billing, name on account
+	//                (string) *sname          = 30 chars..  shipping, name
+	//                (string) *saddr1         = 46 chars..  shipping, line 1 of address
+	//                (string) *sstate         = 40 chars..  shipping, US state code
+	//                (string) *szip           = 9 chars..  shipping, zip code
+	//                (string) *scountry       = 2 chars..  shipping, country code on account
+	//                (string) *phone          = 0-19 chars..  customer contact phone number (day phone)
+	//                (string) *email          = 0-79  chars..  customer email address
+	//                (float)  *chargetotal    = total dollar amount of transaction
+	//                (string) *cardnumber     = 1-17  chars..  credit card number (spaces and dashes are ignored)
+	//                (string) *expmonth       = 2     chars..  credit card expiration month
+	//                (string) *expyear        = 2|4   chars..  credit card expiration year (2 or 4 digit year accepted)
+	//		  (integer)*card_cvv2      = 4 digits..  The 4-digit CVV2 code from the credit card
+	//                (integer) card_corporate = 1 digit.  0 (a personal credit card) or 1 (a corporate credit card)
+	//                (char)   *card_type      = 1 char V - Visa, A - American Express, E - Eurocard / Mastercard, D - Diners
+
+	//                (string) order_date      = 10 char yyyy-mm-dd only needed for returns or captures
+	//                (string) invoice_date      = 10 char yyyy-mm-dd only needed for returns or captures
+	//                (string) due_date      = 10 char yyyy-mm-dd only needed for returns or captures
+	//                (string) tid           = 1-32 char transaction id returned by passystems needed for returns or captures
+	//          
+	// (string)   ApproveSale( $TransInfo ) transaction id on success zero otherwise
+	//          * method used to "authorize" and "capture" payment in one step
+	//          * standard way to charge for services
+	//          * wrapper to method in lpphp class
+	//          * args:
+	//            (struct) $TransInfo
+	//                -- see CapturePayment() --
+	//          
+	// (bool)   ReturnCard( $TransInfo )
+	//          * method used to return money/credit a person's credit card
+	//          * wrapper to method in lpphp class
+	//          * args:
+	//            (struct) $TransInfo
+	//                -- see CapturePayment() --
+	//          
+	
+	// required files
+	include_once( $functionsdir . "DataObject.php" );
+	include_once( $functionsdir . "lpphp.php" );
+	
+	
+	class LinkPointAPI extends DataObject {
+		
+		// ------------------------------------------------------------
+		// public methods
+		// ------------------------------------------------------------
+		
+		function LinkPointAPI() {
+
+			$this->currency = 'USD';
+			$this->psclient_type = 'cc';
+			$this->psclient_path = '/usr/bin/jpsclient/bin/run.sh';
+
+			$this->RequiredArgsData = array(
+				'chargetotal'    => array('type' => 'float',  'min' => 1, 'max' => 10),
+				'cardnumber'     => array('type' => 'string', 'min' => 10,'max' => 17),
+				'card_cvv2'      => array('type' => 'string', 'min' => 0, 'max' => 4),
+				'expmonth'       => array('type' => 'string', 'min' => 2, 'max' => 2),
+				'expyear'        => array('type' => 'string', 'min' => 2, 'max' => 4),
+			//	'card_corporate' => array('type' => 'integer','min' => 0, 'max' => 1),
+				'bname'          => array('type' => 'string', 'min' => 4, 'max' => 50),
+				'card_type'      => array('type' => 'string', 'min' => 1, 'max' => 1),
+				'sname'          => array('type' => 'string', 'min' => 4, 'max' => 30 ),
+				'phone'          => array('type' => 'string', 'min' => 4, 'max' => 30 ),
+				'email'          => array('type' => 'string', 'min' => 5, 'max' => 79 ),
+				'userid'         => array('type' => 'integer', 'min' => 5, 'max' => 20 ),
+				'saddr1'         => array('type' => 'string', 'min' => 4, 'max' => 46 ),
+				'scountry'       => array('type' => 'string', 'min' => 2, 'max' => 2 ),
+				'szip'           => array('type' => 'string', 'min' => 4, 'max' => 9 ),
+				'scity'          => array('type' => 'string', 'min' => 2, 'max' => 40 ),
+				'sstate'         => array('type' => 'string', 'min' => 2, 'max' => 40 ),
+			);
+			
+		}
+
+		function __HasRequiredArgs($TransInfo,&$Error,$returnOrCapture = false) {
+
+			if ($returnOrCapture) {
+				if (!isset($TransInfo['tid'])) {
+					$Error[] = 'A transaction id is required for returning or capturing a transaction';
+				}
+				if (!eregi('[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]',$TransInfo['order_date'])) {
+					$Error[] = 'Invalid order date';
+				}
+				if (!eregi('[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]',$TransInfo['invoice_date'])) {
+					$Error[] = 'Invalid invoice date';
+				}
+				if (!eregi('[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]',$TransInfo['due_date'])) {
+					$Error[] = 'Invalid due date';
+				}
+				if (strlen($TransInfo['ttext']) < 1) {
+					$Error[] = 'Transaction description is required for a return or capture';
+				}
+				
+			}
+
+
+			reset($this->RequiredArgsData);
+			while(list($name,$Info) = each($this->RequiredArgsData)) {
+
+
+				if (!isset($TransInfo[trim($name)])) {
+					$Error[] = sprintf("Field %s is required",$name);
+				}
+
+				if (count($Error) < 1) {
+					switch($Info['type']) {
+						case 'string':
+							if(!is_string($TransInfo[$name])) {
+								$Error[] = sprintf("%s needs to be a string type",$name); 
+							}
+							if (strlen($TransInfo[$name]) < $Info['min'] || strlen($TransInfo[$name]) > $Info['max']) {
+								$Error[] = sprintf("%s should be between %d and %d characters",$name,$Info['min'],$Info['max']);
+							}
+							break;
+						case 'integer':
+							if(!is_integer($TransInfo[$name])) {
+								$Error[] = sprintf("%s needs to be an integer type",$name); 
+							}
+							break;
+						case 'boolean':
+							if(!is_bool($TransInfo[$name])) {
+								$Error[] = sprintf("%s needs to be a boolean",$name); 
+							}
+							break;
+						case 'float':
+							if(!is_float($TransInfo[$name])) {
+								$Error[] = sprintf("%s needs to be a float",$name); 
+							}
+							break;
+					}
+				}
+
+
+			}
+			
+			if (count($Error) < 1) {
+				return true;
+			} else {
+				return false;
+			}
+
+
+		}
+
+		function ApproveSale( $TransInfo ) {
+			$this->__FlushMsgs();
+
+			$Error = array();
+
+			if (!$this->__HasRequiredArgs($TransInfo,$Error)) {
+				while(list(,$err) = each($Error)) {
+					$this->__LogMsg($err);
+				}
+
+				return false;
+			}
+
+
+			// No errors from __RequiredArgs so bill it
+
+			if ($tid = $this->__Bill($TransInfo,'S')) {
+				return $tid;
+			} else {
+				return 0;
+			}
+		
+		}
+
+		function BillOrder( $TransInfo) {
+
+			$this->__FlushMsgs();
+
+			$Error = array();
+
+			if (!$this->__HasRequiredArgs($TransInfo,$Error,true)) {
+				while(list(,$err) = each($Error)) {
+					$this->__LogMsg($err);
+				}
+
+				return false;
+			}
+
+
+			// No errors from __RequiredArgs so bill it
+
+			if ($tid = $this->__Bill($TransInfo,'C')) {
+				return $tid;
+			} else {
+				return 0;
+			}
+		
+		}
+		
+		function CapturePayment( $TransInfo ) {
+
+
+			$this->__FlushMsgs();
+
+			$Error = array();
+
+			if (!$this->__HasRequiredArgs($TransInfo,$Error)) {
+				while(list(,$err) = each($Error)) {
+					$this->__LogMsg($err);
+				}
+
+				return false;
+			}
+
+
+			// No errors from __RequiredArgs so bill it
+
+			if ($tid = $this->__Bill($TransInfo,'A')) {
+				return $tid;
+			} else {
+				return 0;
+			}
+			
+
+		}
+
+		function __GetCardType($cc_num) {
+
+			$type = substr($cc_num,0,1);
+
+			switch($type) {
+				case '6':
+					return 'D';	
+					break;
+				case '5':
+					return 'E';	
+					break;
+				case '4':
+					return 'V';	
+					break;
+				case '3':
+					return 'A';	
+					break;
+				default:
+					$this->__LogMsg('Invalid credit card type');
+					return '';
+			}
+		}
+
+		function __Bill($TransInfo,$trntype) {
+
+
+
+			// Form the system call and run it, assuming everything is parsed at this point
+
+			$exp_year = (strlen(trim($TransInfo['expyear'])) > 2) ? substr($TransInfo['expyear'],-2) : $TransInfo['expyear'];
+			if (isset($TransInfo['oid'])) {
+				$psrequest .= '-order_id="'.$TransInfo['oid']. '" ';
+			}
+
+			if ($trntype == 'C' || $trntype == 'R') {
+				$psrequest .= '-tid="'.$TransInfo['tid']. '" ';
+				$psrequest .= '-order_date="'.$TransInfo['order_date']. '" ';
+				$psrequest .= '-invoice_date="'.$TransInfo['invoice_date']. '" ';
+				$psrequest .= '-due_date="'.$TransInfo['invoice_date']. '" ';
+				$psrequest .= '-ttext="'.$TransInfo['ttext']. '" ';
+			}
+
+			$psrequest .= '-psclient_type="'.$this->psclient_type. '" ';
+			$psrequest .= '-amount="' . sprintf("%.2f",$TransInfo['chargetotal']) . '" ';
+			$psrequest .= '-currency="'.$this->currency.'" ';
+			$psrequest .= '-ttype="'.$trntype.'" ';
+			$psrequest .= '-card_number="'. $TransInfo['cardnumber'] .'" ';
+			$psrequest .= '-card_cvv2="'. $TransInfo['card_cvv2'].'" ';
+			$psrequest .= '-card_exp="'.  sprintf("%02d",$TransInfo['expmonth']) . '/' . sprintf("%02d",$exp_year)  .'" ';
+
+			$psrequest .= sprintf("-card_corporate=%d ",isset($TransInfo['card_corporate']) ? $TransInfo['card_corporate'] : 0 );
+
+			$psrequest .= '-card_name="'. $TransInfo['bname'] .'" ';
+			$psrequest .= '-card_type="'. $this->__GetCardType($TransInfo['cardnumber']) .'" ';
+			$psrequest .= '-first_name="'.$TransInfo['sname'].'" ';
+			$psrequest .= '-last_name="'.$TransInfo['sname'].'" ';
+			$psrequest .= '-phone="'.$TransInfo['phone'].'" ';
+			$psrequest .= '-email="'.$TransInfo['email'].'" ';
+			$psrequest .= '-customer_id="'.$TransInfo['userid'].'" ';
+			$psrequest .= '-street="'.$TransInfo['saddr1'].'" ';
+			$psrequest .= '-country_code="'.$TransInfo['scountry'].'" ';
+			$psrequest .= '-zip_code="'.$TransInfo['szip'].'" ';
+			$psrequest .= '-city="'.$TransInfo['scity'].'" ';
+			$psrequest .= '-state="'.$TransInfo['sstate'].'" ';
+
+			$tasdf = sprintf("%s %s",$this->psclient_path,$psrequest);
+			$psresponse = `$tasdf`;
+
+
+			$colon = strpos($psresponse, ":");
+			if($colon)
+			{
+  			// "split the response into a transaction ID and a status code";
+  			$status = substr($psresponse, 0, $colon);
+  			$tid    = substr($psresponse, $colon+1);
+			}
+			else
+			{
+  			//id there is no ':' it mean an internal error
+  			$status = "301";      //used as a internal generic status code
+  			$tid    = $psresponse;
+			}
+
+			if ($status == 200 ) {
+				return $tid;
+			} else {
+				$this->__LogMsg($tid);
+				return 0;
+			}
+
+		}
+		
+		
+		function ReturnCard( $TransInfo ) {
+			// nada yet	
+			$this->__FlushMsgs();
+
+			$Error = array();
+
+			if (!$this->__HasRequiredArgs($TransInfo,$Error,true)) {
+				while(list(,$err) = each($Error)) {
+					$this->__LogMsg($err);
+				}
+
+				return false;
+			}
+
+
+			// No errors from __RequiredArgs so bill it
+
+			if ($tid = $this->__Bill($TransInfo,'R')) {
+				return $tid;
+			} else {
+				return 0;
+			}
+		
+		}
+		
+	}
+	
+	
+	
+	
+?>

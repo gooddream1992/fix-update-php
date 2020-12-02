@@ -1,0 +1,184 @@
+.demographic_banner {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 2px 2px 3px #666;
+  -webkit-box-shadow: 2px 2px 3px #666;
+  box-shadow: 2px 2px 3px #666;
+  border: solid 2px #779f43;
+  background-color: white;
+  height: 95px;
+  margin: 0 3px; }
+  .demographic_banner form {
+    padding: 0; }
+    .demographic_banner form input.submit {
+      border: none;
+      margin-bottom: -11px; }
+    .demographic_banner form #user_profile_user_identity_zipcode {
+      width: 70px; }
+    .demographic_banner form .email_address {
+      font-size: 12px; }
+      .demographic_banner form .email_address #email_address_text {
+        margin-top: 5px; }
+        .demographic_banner form .email_address #email_address_text div {
+          overflow: hidden;
+          width: 165px;
+          margin-right: 3px; }
+        .demographic_banner form .email_address #email_address_text a {
+          margin-right: 17px;
+          float: right; }
+      .demographic_banner form .email_address #email_address_field {
+        margin-top: 5px;
+        display: none; }
+        .demographic_banner form .email_address #email_address_field input {
+          width: 200px; }
+  .demographic_banner .column_left {
+    z-index: 1;
+    position: relative;
+    background: #fefce5 url(/images/komideals/demographics/arrow_right.png?1286479406) 320px -5px no-repeat;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left: 10px;
+    padding: 5px;
+    margin: 0;
+    float: left;
+    height: 85px;
+    width: 325px;
+    margin-right: 15px; }
+    .demographic_banner .column_left img {
+      float: left;
+      margin: 10px; }
+    .demographic_banner .column_left .heading {
+      background: url(/images/komideals/smart_deals/smart_deals_g_FEFCE5_68x68.png?1286479406) no-repeat 10px 0;
+      margin: 10px 0 0 0;
+      padding: 0 0 5px 88px;
+      font-size: 18px;
+      line-height: 20px;
+      height: 70px; }
+      .demographic_banner .column_left .heading #email_prompt {
+        display: none;
+        font-size: 12px;
+        margin: 6px 0 -6px; }
+      .demographic_banner .column_left .heading span.label {
+        color: #ec6018;
+        font-weight: bold; }
+    .demographic_banner .column_left p {
+      margin: 5px 0 0 0; }
+  .demographic_banner .column_right {
+    position: relative; }
+    .demographic_banner .column_right p {
+      font-family: Helvetica, sans-serif;
+      font-weight: lighter;
+      margin: 0 0 2px 0;
+      padding: 16px 7px 0 23px;
+      text-align: left; }
+    .demographic_banner .column_right fieldset {
+      font-family: Helvetica, sans-serif;
+      font-weight: lighter;
+      font-size: 10px;
+      padding: 21px 7px 0 23px;
+      background-color: #fefce5;
+      padding: 10px;
+      float: left;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; }
+    .demographic_banner .column_right a#dismiss_demographic_form {
+      display: block;
+      position: absolute;
+      right: -12px;
+      top: -7px;
+      font-size: 0;
+      height: 26px;
+      width: 26px;
+      overflow: hidden;
+      background: url(/images/komideals/overlays/btn/x-close-large.png?1286479406) no-repeat; }
+
+body.js_enabled div.tooltip {
+  width: 230px; }
+  body.js_enabled div.tooltip h6 {
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left: 10px;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right: 10px;
+    background-color: #c7ddad;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    font-family: Arial;
+    font-weight: bold;
+    text-align: left; }
+  body.js_enabled div.tooltip p {
+    background-color: #f2f8ec; }
+
+#rail .demographic_side_rail #email_prompt {
+  display: none; }
+#rail .demographic_side_rail a.demographic_tooltip {
+  position: absolute;
+  top: 2px;
+  right: 14px;
+  background: url(/images/komideals/icons/question.png?1286479406) no-repeat left center;
+  cursor: help;
+  display: inline-block;
+  font-size: 0;
+  height: 17px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -9999em;
+  vertical-align: top;
+  width: 14px; }
+#rail .demographic_side_rail div.title {
+  background: url(/images/komideals/demographics/lil_g.png?1286479406) -3px center no-repeat;
+  padding-left: 55px;
+  height: 55px; }
+  #rail .demographic_side_rail div.title h6 {
+    padding-top: 13px;
+    line-height: 1em;
+    font-family: Arial, sans-serif;
+    font-size: 14px; }
+    #rail .demographic_side_rail div.title h6 span {
+      font-weight: normal;
+      display: block; }
+#rail .demographic_side_rail div.logout {
+  color: #333333;
+  margin: 8px 2px 0px 2px;
+  font-size: 11px;
+  width: 100%;
+  overflow: hidden; }
+#rail .demographic_side_rail form .email_address {
+  margin: 0 7px; }
+  #rail .demographic_side_rail form .email_address .field {
+    margin-top: 2px;
+    display: none;
+    margin-bottom: 0; }
+    #rail .demographic_side_rail form .email_address .field input {
+      width: 100%; }
+  #rail .demographic_side_rail form .email_address .text div {
+    overflow: hidden; }
+  #rail .demographic_side_rail form .email_address .text a {
+    display: block;
+    float: right;
+    margin-left: 5px; }
+#rail .demographic_side_rail form fieldset {
+  padding: 8px;
+  font-size: 11px;
+  background-color: #ffffe3; }
+  #rail .demographic_side_rail form fieldset label {
+    display: block;
+    text-align: right;
+    width: 82px;
+    float: left;
+    padding-right: 4px; }
+  #rail .demographic_side_rail form fieldset label.inline {
+    display: inline;
+    float: none; }
+  #rail .demographic_side_rail form fieldset input.prompting_field {
+    width: 90px; }
+  #rail .demographic_side_rail form fieldset select {
+    width: 98px; }
+#rail .demographic_side_rail form button {
+  margin-left: 80px; }

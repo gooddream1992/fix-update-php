@@ -1,0 +1,1 @@
+<img src="<?=IMAGE_URL_PAGE_INDEX_C;?>" width="403" height="345" alt="" border="0">

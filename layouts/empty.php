@@ -1,0 +1,6 @@
+<?	
+
+	// current page
+	include($getpage);
+	
+?>
